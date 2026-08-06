@@ -40,12 +40,12 @@ The New Zealand Commerce Commission publishes two relevant spatial datasets:
 - **Fibre Coverage** — published geographic areas with fibre coverage.
 - **Specified Fibre Areas (SFA)** — parcels formally recognised as being within a specified fibre service area.
 
-The datasets serve different purposes and do not share a common identifier for a direct attribute join. A spatial comparison is therefore required.
+The datasets serve different purposes and do not share a common identifier for a direct attribute join. A **spatial comparison** is therefore required.
 
 > [!IMPORTANT]
 > **Key question:** Do Chorus-related SFA parcels spatially align with the published Fibre Coverage?
 
-Because the datasets use different reference dates, identified mismatches are treated as **review candidates rather than confirmed source-data errors**.
+Fibre Coverage represents connectivity data as at **30 June 2025**, while the 2025 SFA update is based on information provided by Chorus and local fibre companies as of **7 November 2025**. Spatial mismatches are therefore treated as **review candidates rather than confirmed source-data errors**.
 
 > [!NOTE]
 > **Portfolio project:** This is an independent GIS portfolio project developed for skills demonstration using publicly available data. It is not commissioned by, affiliated with, or endorsed by Chorus or the New Zealand Commerce Commission.
