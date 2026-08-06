@@ -3,9 +3,15 @@
 
 This project showcases a parcel-level **spatial data quality audit** using published [Fibre Coverage](https://www.comcom.govt.nz/regulated-industries/telecommunications/monitoring-the-telecommunications-market/telecommunications-connectivity-map/) and [Chorus-related Specified Fibre Area (SFA) parcels](https://www.comcom.govt.nz/regulated-industries/telecommunications/regulated-services/consumer-protections-for-copper-withdrawal/map-of-specified-fibre-areas/) in Wellington City. Using **QGIS** and **PostgreSQL/PostGIS**, the workflow combines **geometry validation**, **spatial database optimisation**, parcel-level **overlap analysis**, and **review-priority classification** to identify potential spatial inconsistencies between the two datasets.
 
-<img src="Fibre_SFA_Audit_Wellington_A4.png"
-     alt="Fibre Coverage and SFA Consistency Audit – Wellington Pilot"
-     width="700">
+## Final Output
+
+The final map summarises parcel-level alignment between Chorus-related SFA parcels and published Fibre Coverage across Wellington City, highlighting **review candidates by priority**.
+
+<p align="center">
+  <img src="Fibre_SFA_Consistency_Audit_Wellington.png"
+       alt="Fibre Coverage and SFA Consistency Audit – Wellington Pilot"
+       width="700">
+</p>
 ---
 
 ## Project Context
