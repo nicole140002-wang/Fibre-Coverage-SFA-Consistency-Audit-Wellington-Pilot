@@ -52,34 +52,29 @@ Fibre Coverage represents connectivity data as at **30 June 2025**, while the 20
 
 ---
 
-## Objective
-
-Build a repeatable GIS workflow to:
-
-1. Extract Chorus-related SFA parcels for Wellington.
-2. validate geometry and spatial attributes.
-3. compare every SFA parcel with the published Fibre Coverage.
-4. calculate parcel-level overlap percentage.
-5. classify potential inconsistencies by review priority.
-6. produce a clear operational map and summary metrics.
-
----
+## Data
 
 ## Data
 
-| Dataset | Purpose | Source |
-|---|---|---|
-| Specified Fibre Areas (SFA) 2025 | Parcel-level fibre service recognition | NZ Commerce Commission |
-| Fibre Coverage — 30 Jun 2025 | Published fibre coverage extent | NZ Commerce Commission |
-| Territorial Authority 2025 | Wellington City study boundary | Stats NZ |
+### Source Data
 
-**Coordinate reference system:** NZGD2000 / New Zealand Transverse Mercator
-2000 — EPSG:2193.
+| Dataset | Source | Features | Role in the analysis |
+|---|---|---:|---|
+| [Fibre Coverage — 30 June 2025](https://www.comcom.govt.nz/regulated-industries/telecommunications/monitoring-the-telecommunications-market/telecommunications-connectivity-map/) | NZ Commerce Commission | **2,008** | Published fibre coverage extent |
+| [Specified Fibre Areas (SFA) 2025](https://www.comcom.govt.nz/regulated-industries/telecommunications/regulated-services/consumer-protections-for-copper-withdrawal/map-of-specified-fibre-areas/) | NZ Commerce Commission | **1,683,966** | Parcel-level specified fibre area records |
+| Territorial Authority 2025 | Stats NZ | — | Wellington City reporting boundary |
 
-The national source datasets contain approximately:
+**Coordinate reference system:** NZGD2000 / New Zealand Transverse Mercator 2000 (**EPSG:2193**).
 
-- **1.68 million SFA parcel records**
-- **2,008 Fibre Coverage features**
+### Analysis Scope
+
+The national datasets were reduced to a Wellington City pilot area for parcel-level analysis:
+
+- **1,683,966** national SFA records in the source dataset.
+- **65,623** Chorus-related SFA parcels retained within the buffered Wellington processing area.
+- **65,111** parcels included in the final Wellington City reporting population.
+
+A **500 m processing buffer** was used around Wellington City to avoid prematurely truncating parcels and coverage features near the reporting boundary. Final statistics were calculated using the Wellington City boundary.
 
 ---
 
