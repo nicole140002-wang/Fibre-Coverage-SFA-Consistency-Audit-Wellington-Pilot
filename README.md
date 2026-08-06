@@ -1,13 +1,12 @@
-# Fibre-Coverage-SFA-Consistency-Audit-Wellington-Pilot - Parcel-level spatial data quality audit using QGIS and PostgreSQL/PostGIS.
+# Fibre Coverage & SFA Consistency Audit — Wellington Pilot
+**Parcel-level spatial data quality audit using QGIS and PostgreSQL/PostGIS**
 
 A parcel-level spatial data quality audit comparing published Fibre Coverage with Chorus-related Specified Fibre Area (SFA) parcels in Wellington City.
-
 The project demonstrates how QGIS and PostgreSQL/PostGIS can be used to validate geospatial datasets, calculate spatial overlap, identify potential inconsistencies, and translate technical results into operational review priorities.
 
 <img src="Fibre_SFA_Audit_Wellington_A4.tif"
      alt="Fibre Coverage and SFA Consistency Audit – Wellington Pilot"
      width="700">
-
 ---
 
 ## Project Context
