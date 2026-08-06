@@ -14,9 +14,11 @@ The final map summarises parcel-level alignment between Chorus-related SFA parce
          width="500">
   </a>
 </p>
+
 <p align="center">
   <em>Click the map to view the full-resolution image.</em>
 </p>
+
 ---
 
 ## Project Context
