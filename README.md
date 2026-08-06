@@ -21,6 +21,18 @@ The final map summarises parcel-level alignment between Chorus-related SFA parce
 
 ---
 
+## What This Project Demonstrates
+
+- Built an end-to-end spatial data quality workflow using **QGIS and PostgreSQL/PostGIS**, starting from a national SFA dataset of approximately **1.68 million parcel records**.
+- Prepared and validated **65,623 Chorus-related SFA parcels** within the Wellington processing area, including CRS, geometry, and attribute quality checks.
+- Detected and repaired an **invalid Fibre Coverage geometry** before downstream spatial processing.
+- Moved parcel-level overlap analysis from QGIS to **PostGIS**, using **GiST spatial indexes** and **`ST_Subdivide`** to improve processing efficiency.
+- Calculated parcel-level **overlap area and overlap percentage** and translated the results into operational **review priorities**.
+- Assessed **65,111 parcels** within the Wellington City reporting boundary, with **99.94% meeting the ≥95% alignment threshold** and only **40 parcels identified for review**.
+- Produced a final operational map combining citywide review priorities, summary metrics, and detailed review examples.
+
+---
+
 ## Project Context
 
 The New Zealand Commerce Commission publishes two relevant spatial datasets:
