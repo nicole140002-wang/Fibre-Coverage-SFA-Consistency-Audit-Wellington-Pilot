@@ -10,23 +10,20 @@ A parcel-level **spatial data quality audit** comparing published [Fibre Coverag
 
 ## Project Context
 
-The New Zealand Commerce Commission publishes both:
+The New Zealand Commerce Commission publishes two relevant spatial datasets:
 
-- **Fibre Coverage** — geographic areas covered by fibre infrastructure.
-- **Specified Fibre Areas (SFA)** — parcels formally recognised as having
-  access to specified fibre services.
+- **Fibre Coverage** — published geographic areas with fibre coverage.
+- **Specified Fibre Areas (SFA)** — parcels formally recognised as being within a specified fibre service area.
 
-The two datasets serve different purposes and do not contain a common
-business key for direct attribute joins.
+The datasets serve different purposes and do not share a common identifier for a direct attribute join. A spatial comparison is therefore required.
 
-This creates a useful spatial data quality question:
+> [!IMPORTANT]
+> **Key question:** Do Chorus-related SFA parcels spatially align with the published Fibre Coverage?
 
-> **Do Chorus-related SFA parcels spatially align with the published fibre
-> coverage extent?**
+Because the datasets use different reference dates, identified mismatches are treated as **review candidates rather than confirmed source-data errors**.
 
-Because the datasets were published using different reference dates,
-identified mismatches are treated as **review candidates rather than
-confirmed source-data errors**.
+> [!NOTE]
+> **Portfolio project:** This is an independent GIS portfolio project developed for skills demonstration using publicly available data. It is not commissioned by, affiliated with, or endorsed by Chorus or the New Zealand Commerce Commission.
 
 ---
 
