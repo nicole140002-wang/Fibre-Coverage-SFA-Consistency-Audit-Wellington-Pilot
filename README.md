@@ -8,10 +8,10 @@ This project showcases a parcel-level **spatial data quality audit** using publi
 The final map summarises parcel-level alignment between Chorus-related SFA parcels and published Fibre Coverage across Wellington City, highlighting **review candidates by priority**.
 
 <p align="center">
-  <a href="Fibre_SFA_Consistency_Audit_Wellington.png">
-    <img src="Fibre_SFA_Consistency_Audit_Wellington.png"
+  <a href="Fibre_SFA_Audit_Wellington_A4.png">
+    <img src="Fibre_SFA_Audit_Wellington_A4.png"
          alt="Fibre Coverage and SFA Consistency Audit – Wellington Pilot"
-         width="450">
+         width="500">
   </a>
 </p>
 ---
