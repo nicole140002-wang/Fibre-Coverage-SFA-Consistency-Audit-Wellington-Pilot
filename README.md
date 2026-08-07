@@ -191,6 +191,14 @@ CROSS JOIN LATERAL ST_Subdivide(f.geom, 256) AS sd(geom);
   </tr>
 </table>
 
+As a validation test, the subdivided Fibre Coverage was loaded back into QGIS
+and the Overlap Analysis was rerun. The operation completed in **under one
+minute**, compared with only about **4% completion after one hour** using the
+original dissolved geometry.
+
+This confirmed that the main performance bottleneck was the complexity of the
+dissolved coverage geometry rather than QGIS alone.
+
 ### 4. Parcel-level overlap analysis
 
 For each Chorus-related SFA parcel in the processing area:
@@ -293,39 +301,6 @@ indicating a potential boundary inconsistency for review.
 
 ---
 
-## Tools & Skills Demonstrated
-
-### GIS & Spatial Analysis
-- **QGIS**
-- Spatial extraction, clipping, and buffering
-- CRS validation and spatial data preparation
-- Geometry validation and repair
-- Parcel-level overlap analysis
-- Thematic mapping
-- Print layout and GIS reporting
-
-### PostgreSQL / PostGIS
-- **PostgreSQL / PostGIS**
-- Spatial SQL
-- GiST spatial indexing
-- **Spatial performance optimisation**
-- `ST_Intersects`
-- `ST_Intersection`
-- `ST_Area`
-- **`ST_Subdivide`**
-- **`ST_PointOnSurface`**
-
-### Data Quality & Operational Reporting
-- Spatial data QA/QC
-- Parcel-level data validation
-- Geometry and attribute consistency checks
-- Review-priority classification
-- Identification of spatial review candidates
-- Operational GIS reporting
-- Clear communication of technical findings
-
----
-
 ## Key Workflow Decisions
 
 ### Why use a 500 m processing buffer?
@@ -371,6 +346,39 @@ captured only because of the 500 m processing buffer.
 For final reporting, parcels were assigned to the Wellington City boundary
 using a point-on-surface spatial test while retaining their complete geometry.
 This produced the final reporting population of **65,111 parcels**.
+
+---
+
+## Tools & Skills Demonstrated
+
+### GIS & Spatial Analysis
+- **QGIS**
+- Spatial extraction, clipping, and buffering
+- CRS validation and spatial data preparation
+- Geometry validation and repair
+- Parcel-level overlap analysis
+- Thematic mapping
+- Print layout and GIS reporting
+
+### PostgreSQL / PostGIS
+- **PostgreSQL / PostGIS**
+- Spatial SQL
+- GiST spatial indexing
+- **Spatial performance optimisation**
+- `ST_Intersects`
+- `ST_Intersection`
+- `ST_Area`
+- **`ST_Subdivide`**
+- **`ST_PointOnSurface`**
+
+### Data Quality & Operational Reporting
+- Spatial data QA/QC
+- Parcel-level data validation
+- Geometry and attribute consistency checks
+- Review-priority classification
+- Identification of spatial review candidates
+- Operational GIS reporting
+- Clear communication of technical findings
 
 ---
 
