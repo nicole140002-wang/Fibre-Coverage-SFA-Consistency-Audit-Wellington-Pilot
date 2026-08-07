@@ -90,8 +90,6 @@ A **500 m processing buffer** was used around Wellington City to avoid premature
 
 ## Method
 
-## Method
-
 ### 1. Study-area preparation
 
 The **Wellington City boundary** was used as the final reporting extent.
