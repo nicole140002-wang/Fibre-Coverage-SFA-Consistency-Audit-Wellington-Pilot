@@ -295,30 +295,34 @@ indicating a potential boundary inconsistency for review.
 
 ## Tools & Skills Demonstrated
 
-**GIS**
-- QGIS
-- spatial extraction and clipping
-- geometry validation
-- thematic mapping
-- print layout and reporting
+### GIS & Spatial Analysis
+- **QGIS**
+- Spatial extraction, clipping, and buffering
+- CRS validation and spatial data preparation
+- Geometry validation and repair
+- Parcel-level overlap analysis
+- Thematic mapping
+- Print layout and GIS reporting
 
-**Spatial Database**
-- PostgreSQL
-- PostGIS
-- spatial SQL
+### PostgreSQL / PostGIS
+- **PostgreSQL / PostGIS**
+- Spatial SQL
 - GiST spatial indexing
+- **Spatial performance optimisation**
 - `ST_Intersects`
 - `ST_Intersection`
 - `ST_Area`
-- `ST_Subdivide`
+- **`ST_Subdivide`**
+- **`ST_PointOnSurface`**
 
-**Data Quality & Reporting**
-- geometry QA/QC
-- parcel-level data validation
-- overlap analysis
-- review-priority classification
-- operational GIS reporting
-- communicating technical results to non-technical users
+### Data Quality & Operational Reporting
+- Spatial data QA/QC
+- Parcel-level data validation
+- Geometry and attribute consistency checks
+- Review-priority classification
+- Identification of spatial review candidates
+- Operational GIS reporting
+- Clear communication of technical findings
 
 ---
 
