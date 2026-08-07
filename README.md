@@ -89,6 +89,58 @@ A **500 m processing buffer** was used around Wellington City to avoid premature
 ---
 
 ## Method
+```mermaid
+flowchart TD
+
+    A["National SFA Parcels<br/>1,683,966 features"]
+    B["Published Fibre Coverage<br/>2,008 features"]
+    C["Wellington City Boundary<br/>Stats NZ"]
+
+    C --> D["Create 500 m Processing Buffer"]
+
+    A --> E["Extract Chorus-related SFA Parcels<br/>Preserve complete parcel geometry"]
+    D --> E
+
+    B --> F["Extract & Clip Fibre Coverage<br/>to buffered study area"]
+    D --> F
+
+    E --> G["SFA Data Quality Checks<br/>CRS • Null geometry • Geometry validity • Parcel IDs"]
+    F --> H["Fibre Coverage QA/QC<br/>Invalid geometry detected and repaired"]
+
+    G --> I["65,623 Chorus-related SFA Parcels<br/>validated for processing"]
+    H --> J["Dissolve Fibre Coverage<br/>into one complex coverage geometry"]
+
+    I --> K["Initial QGIS Overlap Analysis"]
+    J --> K
+
+    K --> L["Performance Bottleneck<br/>~1 hour → only ~4% completed"]
+
+    L --> M["Move Spatial Processing to PostGIS"]
+
+    M --> N["Database Optimisation<br/>Primary Keys • GiST Indexes • ANALYZE"]
+
+    N --> O["ST_Subdivide<br/>1 complex polygon → 2,062 smaller polygon parts"]
+
+    O --> P["Parcel-level Spatial Intersection<br/>ST_Intersects • ST_Intersection • ST_Area"]
+
+    P --> Q["Calculate Overlap Metrics<br/>Overlap Area + Overlap Percentage"]
+
+    Q --> R["Select Final Wellington City Reporting Population<br/>65,111 parcels"]
+
+    R --> S["Review Classification"]
+
+    S --> T["Pass<br/>≥95%"]
+    S --> U["Low<br/>50%–<95%"]
+    S --> V["Medium<br/>>0%–<50%"]
+    S --> W["High<br/>0%"]
+
+    T --> X["Final Audit Map & Summary"]
+    U --> X
+    V --> X
+    W --> X
+
+    X --> Y["65,071 Pass<br/>40 Review Candidates<br/>99.94% Alignment Rate"]
+```
 
 ### 1. Study-area preparation
 
