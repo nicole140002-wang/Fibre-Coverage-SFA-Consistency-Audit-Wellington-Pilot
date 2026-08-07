@@ -74,6 +74,20 @@ The national datasets were reduced to a Wellington City pilot area for parcel-le
 
 A **500 m processing buffer** was used around Wellington City to avoid prematurely truncating parcels and coverage features near the reporting boundary. Final statistics were calculated using the Wellington City boundary.
 
+<p align="center">
+  <a href="Study Area and Processing Extent.png">
+    <img src="Study Area and Processing Extent.png"
+         alt="Wellington City reporting boundary and 500 m processing buffer"
+         width="650">
+  </a>
+</p>
+
+<p align="center">
+  <em>Wellington City reporting boundary and 500 m processing extent. Click the map to view the full-resolution image.</em>
+</p>
+
+
+
 ---
 
 ## Method
