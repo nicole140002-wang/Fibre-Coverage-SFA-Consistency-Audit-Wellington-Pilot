@@ -184,14 +184,13 @@ CROSS JOIN LATERAL ST_Subdivide(f.geom, 256) AS sd(geom);
 
 ### 4. Parcel-level overlap analysis
 
-For each SFA parcel:
+For each Chorus-related SFA parcel in the processing area:
 
 - parcel area was calculated from the validated geometry
-- intersection area with Fibre Coverage was calculated
-- overlap percentage was derived
+- the intersecting Fibre Coverage area was calculated
+- parcel-level **overlap percentage** was derived from the intersection area relative to the parcel area
 
-The resulting parcel-level dataset retained all SFA records, including parcels
-with no coverage intersection.
+The analysis retained all **65,623 SFA parcels** in the processing area, including parcels with **no Fibre Coverage intersection**, allowing both partial overlaps and complete non-matches to be identified.
 
 ### 5. Review classification
 
@@ -200,12 +199,11 @@ Overlap results were translated into operational review priorities:
 | Review priority | Overlap rule | Interpretation |
 |---|---:|---|
 | **Pass** | ≥ 95% | Strong spatial alignment |
-| **Low** | 50% to <95% | Minor / moderate mismatch for review |
+| **Low** | 50% to <95% | Moderate spatial mismatch for review |
 | **Medium** | >0% to <50% | Significant partial overlap |
-| **High** | 0% | No published fibre coverage match |
+| **High** | 0% | No published Fibre Coverage match |
 
-These thresholds were defined for this portfolio demonstration and are not
-official Chorus or regulatory classifications.
+These thresholds were defined for this portfolio project and are **not official Chorus or regulatory classifications**. Records classified as Low, Medium, or High are treated as **review candidates rather than confirmed source-data errors**.
 
 ---
 
