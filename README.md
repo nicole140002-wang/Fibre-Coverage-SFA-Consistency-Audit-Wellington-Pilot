@@ -99,7 +99,6 @@ flowchart LR
     E --> F["Review Priorities"]
     F --> G["Final Map & Results"]
 ```
-
 ### 1. Study-area preparation
 
 The **Wellington City boundary** was used as the final reporting extent.
