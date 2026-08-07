@@ -326,26 +326,51 @@ indicating a potential boundary inconsistency for review.
 
 ---
 
-## Key Technical Decisions
+## Key Workflow Decisions
+
+### Why use a 500 m processing buffer?
+
+A 500 m buffer was used during intermediate processing to avoid prematurely
+excluding parcels and coverage features that cross or sit close to the
+Wellington City boundary.
+
+The buffer was used only for processing; final reporting was restricted to
+Wellington City.
 
 ### Why preserve complete SFA parcels?
 
-SFA polygons represent individual parcels. Clipping them at the study-area
-boundary would modify parcel geometry and area and could distort overlap
-percentages.
+SFA polygons represent individual parcel-level records. Clipping them to the
+processing boundary would alter their geometry and area and could distort
+parcel-level overlap percentages.
+
+SFA parcels were therefore selected by spatial intersection while retaining
+their complete geometries.
 
 ### Why clip Fibre Coverage?
 
-Fibre Coverage represents a continuous coverage surface. Clipping removes
-irrelevant MultiPolygon components outside the study area and reduces
-processing overhead.
+Fibre Coverage represents a continuous coverage surface rather than individual
+cadastral parcels.
 
-### Why use PostGIS for overlap processing?
+Clipping it to the buffered study area removed irrelevant MultiPolygon
+components outside the analysis extent and reduced unnecessary processing.
 
-The Wellington pilot contains tens of thousands of parcels and a complex
-coverage geometry. PostGIS allowed the workflow to use spatial indexing,
-geometry subdivision and SQL-based aggregation more efficiently than the
-initial desktop GIS overlap workflow.
+### Why subdivide the dissolved Fibre Coverage?
+
+The dissolved Fibre Coverage formed a single highly complex geometry, which
+created a major performance bottleneck during the initial QGIS overlap analysis.
+
+Using PostGIS `ST_Subdivide` split the geometry into **2,062 smaller polygon
+parts**, enabling more efficient spatial-index filtering and substantially
+reducing intersection processing time.
+
+### Why use a separate final reporting population?
+
+The buffered processing area contained **65,623 parcels**, including parcels
+captured only because of the 500 m processing buffer.
+
+For final reporting, parcels were assigned to the Wellington City boundary
+using a point-on-surface spatial test while retaining their complete geometry.
+This produced the final reporting population of **65,111 parcels**.
 
 ---
 
