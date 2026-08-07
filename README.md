@@ -115,9 +115,9 @@ Before spatial comparison, the input datasets were checked for:
 - geometry-derived parcel area
 - consistency with source area attributes
 
-One invalid geometry was identified in the national Fibre Coverage dataset and repaired before further processing.
+During the initial QGIS spatial processing, **one invalid geometry was detected in the Fibre Coverage dataset**, which caused the spatial operation to fail. The geometry was repaired using the QGIS **Fix Geometries** tool before the coverage dataset was extracted and prepared for further analysis.
 
-A GEOS validity assessment was also performed on the **65,623 Chorus-related SFA parcels** in the processing area. All parcels passed the geometry validity check.
+A GEOS geometry validity assessment was then performed on the **65,623 Chorus-related SFA parcels** in the processing area. All parcels passed the validity check, with no invalid geometries or geometry errors identified.
 
 ---
 
@@ -146,6 +146,7 @@ SELECT
     sd.geom::geometry(Polygon, 2193) AS geom
 FROM chorus_fibre.fibre_coverage_wellington_dissolved AS f
 CROSS JOIN LATERAL ST_Subdivide(f.geom, 256) AS sd(geom);
+```
 
 ### 4. Parcel-level overlap analysis
 
