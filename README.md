@@ -218,29 +218,40 @@ These thresholds were defined for this portfolio project and are **not official 
 
 ## Results
 
+### Final reporting extent
+
+The overlap analysis was performed on **65,623 Chorus-related SFA parcels**
+within the buffered processing area.
+
+For final reporting, the results were restricted to parcels belonging to the
+**Wellington City reporting boundary**, while preserving complete parcel
+geometries. This reduced the final reporting population to **65,111 parcels**.
+
+### Audit results
+
 A total of **65,111 Chorus-related SFA parcels** within the Wellington City
 reporting area were assessed.
 
 | Result | Parcels |
 |---|---:|
-| Pass | **65,071** |
-| Review candidates | **40** |
-| High | **3** |
-| Medium | **2** |
-| Low | **35** |
+| **Pass** | **65,071** |
+| **Review candidates** | **40** |
+| High | 3 |
+| Medium | 2 |
+| Low | 35 |
 
 ### Key finding
 
-**99.94%** of assessed parcels met the ≥95% alignment threshold.
+**99.94%** of assessed parcels met the **≥95% alignment threshold**.
 
-Only **40 parcels (0.06%)** were identified as review candidates, including:
+Only **40 parcels (0.06%)** were identified as review candidates:
 
 - **3 High-priority parcels** with no spatial overlap
 - **2 Medium-priority parcels** with less than 50% overlap
 - **35 Low-priority parcels**
 
-The result indicates a high level of overall spatial consistency while also
-identifying a small, targeted set of records suitable for further review.
+The results indicate a high level of overall spatial consistency while
+identifying a small, targeted set of parcels suitable for further review.
 
 ---
 
