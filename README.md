@@ -86,53 +86,66 @@ A **500 m processing buffer** was used around Wellington City to avoid premature
   <em>Wellington City reporting boundary and 500 m processing extent. Click the map to view the full-resolution image.</em>
 </p>
 
-
-
 ---
+
+## Method
 
 ## Method
 
 ### 1. Study-area preparation
 
-A Wellington City boundary was used for final reporting.
+The **Wellington City boundary** was used as the final reporting extent.
 
-A **500 m study-area buffer** was created for intermediate extraction so
-features close to the city boundary were not prematurely truncated.
+A **500 m processing buffer** was created around the city boundary so that parcels and coverage features close to the boundary were not prematurely truncated during intermediate processing.
 
-SFA parcels were extracted by spatial intersection rather than clipping,
-preserving their original geometry and parcel area.
+SFA parcels were selected by spatial intersection rather than clipping, preserving their complete parcel geometries and original areas.
 
-Fibre Coverage was clipped to the buffered study area because it represents
-a continuous coverage surface rather than cadastral parcels.
+Fibre Coverage, which represents a continuous coverage surface rather than cadastral parcels, was clipped to the buffered processing extent to remove irrelevant geometry outside the study area.
+
+---
 
 ### 2. Data quality checks
 
-The workflow included:
+Before spatial comparison, the input datasets were checked for:
 
-- CRS validation
-- null-geometry checks
-- geometry validity checks
-- parcel ID checks
-- geometry-derived parcel area calculation
-- comparison with source area attributes
+- CRS consistency
+- null geometries
+- geometry validity
+- parcel identifiers
+- geometry-derived parcel area
+- consistency with source area attributes
 
-All Chorus-related SFA parcels used in the pilot passed the geometry validity
-assessment.
+One invalid geometry was identified in the national Fibre Coverage dataset and repaired before further processing.
 
-### 3. Spatial database optimisation
+A GEOS validity assessment was also performed on the **65,623 Chorus-related SFA parcels** in the processing area. All parcels passed the geometry validity check.
 
-The analysis was initially tested in QGIS, but parcel-level overlap processing
-was moved to PostgreSQL/PostGIS for improved performance.
+---
 
-Optimisation included:
+### 3. Performance bottleneck and spatial optimisation
 
-- primary-key indexes
-- GiST spatial indexes
-- `ANALYZE`
-- `ST_Subdivide` on the complex dissolved Fibre Coverage geometry
+The parcel-level overlap analysis was initially attempted in **QGIS** using the dissolved Fibre Coverage geometry.
 
-The subdivided coverage layer contained **2,062 smaller polygon parts**,
-reducing unnecessary candidate intersections during spatial processing.
+Performance was extremely slow: after approximately **one hour, only about 4% of the analysis had completed**.
+
+The dissolved Fibre Coverage consisted of a single, highly complex polygon geometry. This meant that repeated parcel-to-coverage intersection tests remained computationally expensive even though the coverage dataset contained only one dissolved feature.
+
+The workflow was therefore moved to **PostgreSQL/PostGIS** for investigation and optimisation.
+
+The main optimisation steps were:
+
+- creation of primary-key indexes
+- creation of **GiST spatial indexes**
+- database statistics update using `ANALYZE`
+- subdivision of the complex dissolved Fibre Coverage using `ST_Subdivide`
+
+For example:
+
+```sql
+SELECT
+    ROW_NUMBER() OVER ()::bigint AS part_id,
+    sd.geom::geometry(Polygon, 2193) AS geom
+FROM chorus_fibre.fibre_coverage_wellington_dissolved AS f
+CROSS JOIN LATERAL ST_Subdivide(f.geom, 256) AS sd(geom);
 
 ### 4. Parcel-level overlap analysis
 
