@@ -145,6 +145,42 @@ SELECT
 FROM chorus_fibre.fibre_coverage_wellington_dissolved AS f
 CROSS JOIN LATERAL ST_Subdivide(f.geom, 256) AS sd(geom);
 ```
+`ST_Subdivide` split the dissolved coverage geometry into **2,062 smaller polygon parts**.
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <strong>Before — Dissolved Fibre Coverage</strong>
+    </td>
+    <td align="center" width="50%">
+      <strong>After — Subdivided Fibre Coverage</strong>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="dissolved fibre polygon.png">
+        <img src="dissolved fibre polygon.png"
+             alt="Dissolved Fibre Coverage before subdivision"
+             width="420">
+      </a>
+    </td>
+    <td align="center">
+      <a href="divided fibre polygons.png">
+        <img src="divided fibre polygons.png"
+             alt="Fibre Coverage after ST_Subdivide"
+             width="420">
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <em>1 complex dissolved polygon</em>
+    </td>
+    <td align="center">
+      <em>2,062 smaller polygon parts after ST_Subdivide</em>
+    </td>
+  </tr>
+</table>
 
 ### 4. Parcel-level overlap analysis
 
