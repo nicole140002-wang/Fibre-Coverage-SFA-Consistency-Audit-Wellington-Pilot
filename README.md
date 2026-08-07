@@ -376,11 +376,8 @@ This produced the final reporting population of **65,111 parcels**.
 
 ## Limitations
 
-- Fibre Coverage and SFA datasets represent different publication/reference
-  dates.
-- Spatial mismatches therefore do not necessarily represent source-data errors.
-- Review-priority thresholds were created for this portfolio demonstration.
-- Results should be interpreted as **potential review candidates**, not
-  confirmed network or regulatory inconsistencies.
+- Fibre Coverage and SFA represent different purposes and reference dates, so spatial differences may reflect timing or dataset-design differences rather than data errors.
+- The analysis assesses spatial consistency between published datasets only; it does not verify actual fibre service availability or physical network conditions.
+- Review-priority thresholds were defined for this portfolio project, so identified mismatches should be interpreted as **review candidates rather than confirmed source-data errors**.
 
 
