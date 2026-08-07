@@ -54,15 +54,13 @@ Fibre Coverage represents connectivity data as at **30 June 2025**, while the 20
 
 ## Data
 
-## Data
-
 ### Source Data
 
 | Dataset | Source | Features | Role in the analysis |
 |---|---|---:|---|
 | [Fibre Coverage — 30 June 2025](https://www.comcom.govt.nz/regulated-industries/telecommunications/monitoring-the-telecommunications-market/telecommunications-connectivity-map/) | NZ Commerce Commission | **2,008** | Published fibre coverage extent |
 | [Specified Fibre Areas (SFA) 2025](https://www.comcom.govt.nz/regulated-industries/telecommunications/regulated-services/consumer-protections-for-copper-withdrawal/map-of-specified-fibre-areas/) | NZ Commerce Commission | **1,683,966** | Parcel-level specified fibre area records |
-| Territorial Authority 2025 | Stats NZ | — | Wellington City reporting boundary |
+| [Territorial Authority 2025](https://datafinder.stats.govt.nz/layer/120963-territorial-authority-2025/) | Stats NZ | — | Wellington City reporting boundary |
 
 **Coordinate reference system:** NZGD2000 / New Zealand Transverse Mercator 2000 (**EPSG:2193**).
 
