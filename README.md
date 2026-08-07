@@ -255,7 +255,7 @@ identifying a small, targeted set of parcels suitable for further review.
 
 ---
 
-## Example Review Cases
+## Review Examples
 
 ### High Priority — No Coverage Match
 
@@ -264,7 +264,15 @@ identifying a small, targeted set of parcels suitable for further review.
 - **Priority:** High
 
 No spatial overlap was identified between this SFA parcel and the published
-fibre coverage. The record was therefore flagged for priority review.
+Fibre Coverage. The record was therefore flagged for priority review.
+
+<p align="center">
+  <a href="high_priority_example.png">
+    <img src="high_priority_example.png"
+         alt="High-priority review example"
+         width="420">
+  </a>
+</p>
 
 ### Medium Priority — Partial Overlap
 
@@ -272,8 +280,16 @@ fibre coverage. The record was therefore flagged for priority review.
 - **Overlap:** 41.99%
 - **Priority:** Medium
 
-Only part of this SFA parcel intersects the published fibre coverage,
+Only part of this SFA parcel intersects the published Fibre Coverage,
 indicating a potential boundary inconsistency for review.
+
+<p align="center">
+  <a href="medium_priority_example.png">
+    <img src="medium_priority_example.png"
+         alt="Medium-priority review example"
+         width="420">
+  </a>
+</p>
 
 ---
 
@@ -338,29 +354,4 @@ initial desktop GIS overlap workflow.
 - Results should be interpreted as **potential review candidates**, not
   confirmed network or regulatory inconsistencies.
 
----
 
-## Repository Structure
-
-```text
-wellington-fibre-sfa-consistency-audit/
-│
-├── README.md
-├── data/
-│   └── README.md
-│
-├── sql/
-│   ├── 01_create_indexes.sql
-│   ├── 02_subdivide_coverage.sql
-│   ├── 03_overlap_analysis.sql
-│   └── 04_review_classification.sql
-│
-├── qgis/
-│   └── wellington_fibre_audit.qgz
-│
-├── outputs/
-│   ├── fibre_sfa_consistency_audit_wellington.png
-│   └── fibre_sfa_consistency_audit_wellington.pdf
-│
-└── docs/
-    └── workflow_notes.md
