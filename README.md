@@ -90,15 +90,7 @@ A **500 m processing buffer** was used around Wellington City to avoid premature
 
 ## Method
 
-```mermaid
-flowchart LR
-    A["Source Data"] --> B["Study Area & QA/QC"]
-    B --> C["QGIS Overlap<br/>Performance Bottleneck"]
-    C --> D["PostGIS Optimisation<br/>GiST + ST_Subdivide"]
-    D --> E["Parcel-level Overlap"]
-    E --> F["Review Priorities"]
-    F --> G["Final Map & Results"]
-```
+
 ### 1. Study-area preparation
 
 The **Wellington City boundary** was used as the final reporting extent.
