@@ -184,8 +184,8 @@ CROSS JOIN LATERAL ST_Subdivide(f.geom, 256) AS sd(geom);
 </table>
 
 As a validation test, the subdivided Fibre Coverage was loaded back into QGIS
-and the Overlap Analysis was rerun. The operation completed in **under one
-minute**, compared with only about **4% completion after one hour** using the
+and the Overlap Analysis was rerun. The operation completed within **several 
+minutes**, compared with only about **4% completion after one hour** using the
 original dissolved geometry.
 
 This confirmed that the main performance bottleneck was the complexity of the
